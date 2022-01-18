@@ -27,6 +27,7 @@ public class GameTest {
 	
 	@Test
 	public void shouldPromptForUserInput() {
-		
+		String expected = "Enter 0 for Rock, 1 for Paper, 2 for Scissors.";
+		Assert.assertEquals(expected, game.userInputPrompt());
 	}
 }
