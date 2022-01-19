@@ -5,14 +5,16 @@ import java.util.Scanner;
 
 public class Game {
 	Scanner scanner = new Scanner(System.in);
-	private int userChoice;
+	public int userChoice;
 	public int computerChoice;
 	private Random randomNumber = new Random();
 	
 	public void run() {
 		System.out.println(welcomeMessage());
 		System.out.println(userInputPrompt());
-		
+		getUserInput();
+		computerChooses();
+		System.out.println(outputOfRound());
 	}
 	
 	public String welcomeMessage() {
@@ -51,5 +53,39 @@ public class Game {
 	public int computerChooses() {
 		computerChoice = randomNumber.nextInt(3);
 		return computerChoice;
+	}
+	
+	public String outputOfRound() {
+		String outputPhrase = null;
+		switch(userChoice) {
+		case 0:
+			if(computerChoice == 1) {
+				outputPhrase = "You played Rock, Computer played Paper.  Computer wins this round.";
+			} else if(computerChoice == 2) {
+				outputPhrase = "You played Rock, Computer played Scissors.  You win this round.";
+			} else {
+				outputPhrase = "You both played Rock.  Tie round.";
+			}
+			break;
+		case 1:
+			if(computerChoice == 0) {
+				outputPhrase = "You played Paper, Computer played Rock.  You win this round.";
+			} else if(computerChoice == 2) {
+				outputPhrase = "You played Paper, Computer played Scissors. Computer wins this round.";
+			} else {
+				outputPhrase = "You both played Paper.  Tie round.";
+			}
+			break;
+		case 2:
+			if(computerChoice == 0) {
+				outputPhrase = "You played Scissors, Computer played Rock.  Computer wins this round.";
+			} else if(computerChoice == 1) {
+				outputPhrase = "You played Scissors, Computer played Paper.  You win this round.";
+			} else {
+				outputPhrase = "You both played Scissors.  Tie round.";
+			}
+			break;
+		}
+		return outputPhrase;
 	}
 }
