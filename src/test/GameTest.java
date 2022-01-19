@@ -3,6 +3,7 @@ package test;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.Arrays;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -62,4 +63,12 @@ public class GameTest {
 		game.getUserInput();
 	}
 	*/
+	
+	@Test
+	public void computerShouldMakeAChoice() {
+		Integer possibleValues[] = {0, 1, 2,};
+		game.computerChooses();
+		boolean test = Arrays.asList(possibleValues).contains(game.computerChoice);
+		Assert.assertTrue(test);
+	}
 }

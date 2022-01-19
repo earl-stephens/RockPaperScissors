@@ -1,10 +1,13 @@
 package main;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Game {
 	Scanner scanner = new Scanner(System.in);
 	private int userChoice;
+	public int computerChoice;
+	private Random randomNumber = new Random();
 	
 	public void run() {
 		System.out.println(welcomeMessage());
@@ -43,5 +46,10 @@ public class Game {
 			throw new IllegalArgumentException("Invalid Option");
 			//break;
 		}
+	}
+	
+	public int computerChooses() {
+		computerChoice = randomNumber.nextInt(3);
+		return computerChoice;
 	}
 }
