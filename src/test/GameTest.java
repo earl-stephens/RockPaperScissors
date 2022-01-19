@@ -71,4 +71,23 @@ public class GameTest {
 		boolean test = Arrays.asList(possibleValues).contains(game.computerChoice);
 		Assert.assertTrue(test);
 	}
+	
+	@Test
+	public void displayWhoWonTheRound() {
+		game.userChoice = 1;
+		game.computerChoice = 2;
+		String expected = "You played Paper, Computer played Scissors. Computer wins this round.";
+		String result = game.outputOfRound();
+		Assert.assertEquals(expected, result);
+	}
+	
+	
+	@Test
+	public void displayTieRound() {
+		game.userChoice = 1;
+		game.computerChoice = 1;
+		String expected = "You both played Paper.  Tie round.";
+		String result = game.outputOfRound();
+		Assert.assertEquals(expected, result);
+	}
 }
