@@ -90,4 +90,12 @@ public class Game {
 		roundCounter++;
 		return outputPhrase;
 	}
+	
+	public String nextRoundCheck() {
+		if(roundCounter < 3) {
+			return userInputPrompt();
+		} else {
+			return "No turns remaining.";
+		}
+	}
 }

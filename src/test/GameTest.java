@@ -102,4 +102,20 @@ public class GameTest {
 		game.outputOfRound();
 		Assert.assertEquals(2, game.roundCounter);
 		}
+	
+	@Test
+	public void shouldPromptForNextRoundIfAvailable() {
+		game.userChoice = 1;
+		game.computerChoice = 2;
+		game.outputOfRound();
+		Assert.assertEquals("Enter 0 for Rock, 1 for Paper, 2 for Scissors.", game.nextRoundCheck());
+		game.userChoice = 1;
+		game.computerChoice = 2;
+		game.outputOfRound();
+		Assert.assertEquals("Enter 0 for Rock, 1 for Paper, 2 for Scissors.", game.nextRoundCheck());
+		game.userChoice = 1;
+		game.computerChoice = 2;
+		game.outputOfRound();
+		Assert.assertEquals("No turns remaining.", game.nextRoundCheck());
+	}
 }
