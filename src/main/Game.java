@@ -9,6 +9,8 @@ public class Game {
 	public int computerChoice;
 	private Random randomNumber = new Random();
 	public int roundCounter = 0;
+	public int playerWins = 0;
+	public int computerWins = 0;
 	
 	public void run() {
 		System.out.println(welcomeMessage());
@@ -16,6 +18,7 @@ public class Game {
 		getUserInput();
 		computerChooses();
 		System.out.println(outputOfRound());
+		keepPlaying();
 	}
 	
 	public String welcomeMessage() {
@@ -62,8 +65,10 @@ public class Game {
 		case 0:
 			if(computerChoice == 1) {
 				outputPhrase = "You played Rock, Computer played Paper.  Computer wins this round.";
+				computerWins++;
 			} else if(computerChoice == 2) {
 				outputPhrase = "You played Rock, Computer played Scissors.  You win this round.";
+				playerWins++;
 			} else {
 				outputPhrase = "You both played Rock.  Tie round.";
 			}
@@ -71,8 +76,10 @@ public class Game {
 		case 1:
 			if(computerChoice == 0) {
 				outputPhrase = "You played Paper, Computer played Rock.  You win this round.";
+				playerWins++;
 			} else if(computerChoice == 2) {
 				outputPhrase = "You played Paper, Computer played Scissors. Computer wins this round.";
+				computerWins++;
 			} else {
 				outputPhrase = "You both played Paper.  Tie round.";
 			}
@@ -80,8 +87,10 @@ public class Game {
 		case 2:
 			if(computerChoice == 0) {
 				outputPhrase = "You played Scissors, Computer played Rock.  Computer wins this round.";
+				computerWins++;
 			} else if(computerChoice == 1) {
 				outputPhrase = "You played Scissors, Computer played Paper.  You win this round.";
+				playerWins++;
 			} else {
 				outputPhrase = "You both played Scissors.  Tie round.";
 			}
@@ -96,6 +105,28 @@ public class Game {
 			return userInputPrompt();
 		} else {
 			return "No turns remaining.";
+		}
+	}
+	
+	public void keepPlaying() {
+		if(roundCounter < 3) {
+			getUserInput();
+			computerChooses();
+			outputOfRound();
+			nextRoundCheck();
+			keepPlaying();
+		} else {
+			declareWinner();
+		}
+	}
+	
+	public String declareWinner() {
+		if(computerWins > playerWins) {
+			String compWin = "Computer won - best " + computerWins + " out of 3";
+			return compWin;
+		} else {
+			String playWin = "You won - best " + playerWins + " out of 3";
+			return playWin;
 		}
 	}
 }

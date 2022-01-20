@@ -118,4 +118,36 @@ public class GameTest {
 		game.outputOfRound();
 		Assert.assertEquals("No turns remaining.", game.nextRoundCheck());
 	}
+	
+	@Test
+	public void shouldShowUserWinsGame() {
+		game.userChoice = 0;
+		game.computerChoice = 2;
+		game.outputOfRound();
+		Assert.assertEquals("Enter 0 for Rock, 1 for Paper, 2 for Scissors.", game.nextRoundCheck());
+		game.userChoice = 2;
+		game.computerChoice = 1;
+		game.outputOfRound();
+		Assert.assertEquals("Enter 0 for Rock, 1 for Paper, 2 for Scissors.", game.nextRoundCheck());
+		game.userChoice = 1;
+		game.computerChoice = 0;
+		game.outputOfRound();
+		Assert.assertEquals("You won - best 3 out of 3", game.declareWinner());
+	}
+	
+	@Test
+	public void shouldShowComputerWinsGame() {
+		game.userChoice = 0;
+		game.computerChoice = 1;
+		game.outputOfRound();
+		Assert.assertEquals("Enter 0 for Rock, 1 for Paper, 2 for Scissors.", game.nextRoundCheck());
+		game.userChoice = 1;
+		game.computerChoice = 2;
+		game.outputOfRound();
+		Assert.assertEquals("Enter 0 for Rock, 1 for Paper, 2 for Scissors.", game.nextRoundCheck());
+		game.userChoice = 2;
+		game.computerChoice = 0;
+		game.outputOfRound();
+		Assert.assertEquals("Computer won - best 3 out of 3", game.declareWinner());
+	}
 }
