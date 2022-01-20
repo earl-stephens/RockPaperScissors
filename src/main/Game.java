@@ -8,6 +8,7 @@ public class Game {
 	public int userChoice;
 	public int computerChoice;
 	private Random randomNumber = new Random();
+	public int roundCounter = 0;
 	
 	public void run() {
 		System.out.println(welcomeMessage());
@@ -86,6 +87,7 @@ public class Game {
 			}
 			break;
 		}
+		roundCounter++;
 		return outputPhrase;
 	}
 }
