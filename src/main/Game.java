@@ -66,9 +66,11 @@ public class Game {
 			if(computerChoice == 1) {
 				outputPhrase = "You played Rock, Computer played Paper.  Computer wins this round.";
 				computerWins++;
+				roundCounter++;
 			} else if(computerChoice == 2) {
 				outputPhrase = "You played Rock, Computer played Scissors.  You win this round.";
 				playerWins++;
+				roundCounter++;
 			} else {
 				outputPhrase = "You both played Rock.  Tie round.";
 			}
@@ -77,9 +79,11 @@ public class Game {
 			if(computerChoice == 0) {
 				outputPhrase = "You played Paper, Computer played Rock.  You win this round.";
 				playerWins++;
+				roundCounter++;
 			} else if(computerChoice == 2) {
 				outputPhrase = "You played Paper, Computer played Scissors. Computer wins this round.";
 				computerWins++;
+				roundCounter++;
 			} else {
 				outputPhrase = "You both played Paper.  Tie round.";
 			}
@@ -88,15 +92,17 @@ public class Game {
 			if(computerChoice == 0) {
 				outputPhrase = "You played Scissors, Computer played Rock.  Computer wins this round.";
 				computerWins++;
+				roundCounter++;
 			} else if(computerChoice == 1) {
 				outputPhrase = "You played Scissors, Computer played Paper.  You win this round.";
 				playerWins++;
+				roundCounter++;
 			} else {
 				outputPhrase = "You both played Scissors.  Tie round.";
 			}
 			break;
 		}
-		roundCounter++;
+		//roundCounter++;
 		return outputPhrase;
 	}
 	

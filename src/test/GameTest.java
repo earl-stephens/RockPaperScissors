@@ -150,4 +150,12 @@ public class GameTest {
 		game.outputOfRound();
 		Assert.assertEquals("Computer won - best 3 out of 3", game.declareWinner());
 	}
+	
+	@Test
+	public void shouldNotIncrementRoundCounterIfRoundIsATie() {
+		game.userChoice = 0;
+		game.computerChoice = 0;
+		game.outputOfRound();
+		Assert.assertEquals(0, game.roundCounter);
+	}
 }
