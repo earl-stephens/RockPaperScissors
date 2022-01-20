@@ -90,4 +90,16 @@ public class GameTest {
 		String result = game.outputOfRound();
 		Assert.assertEquals(expected, result);
 	}
+	
+	@Test
+	public void shouldCalculateTheNumberOfRoundsPlayed() {
+		game.userChoice = 1;
+		game.computerChoice = 2;
+		game.outputOfRound();
+		Assert.assertEquals(1, game.roundCounter);
+		game.userChoice = 0;
+		game.computerChoice = 1;
+		game.outputOfRound();
+		Assert.assertEquals(2, game.roundCounter);
+		}
 }
