@@ -39,13 +39,13 @@ public class Game {
 		
 		switch(userInput) {
 		case "0": 
-			System.out.printf("%d - Rock", userChoice);
+			System.out.printf("%d - Rock\n", userChoice);
 			break;
 		case "1":
-			System.out.printf("%d - Paper", userChoice);
+			System.out.printf("%d - Paper\n", userChoice);
 			break;
 		case "2":
-			System.out.printf("%d - Scissors", userChoice);
+			System.out.printf("%d - Scissors\n", userChoice);
 			break;
 		default: 
 			//System.out.println("Invalid option");
@@ -118,7 +118,7 @@ public class Game {
 		if(roundCounter < 3) {
 			getUserInput();
 			computerChooses();
-			outputOfRound();
+			System.out.println(outputOfRound());
 			nextRoundCheck();
 			keepPlaying();
 		} else {
