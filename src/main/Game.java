@@ -35,21 +35,29 @@ public class Game {
 	}
 	
 	public void getUserInput() {
-		//String userInput = null;
 		String userInput = scanner.nextLine();
 		int userChoice = 0;
 		
 		if(userInput.equals("")) {
 			System.out.println("Invalid Input.");
 			System.out.println("Enter 0 for Rock, 1 for Paper, 2 for Scissors.");
-			//scanner.nextLine();
-			//System.out.println();
 			getUserInput();
-
 		} else {
 			userChoice = Integer.parseInt(userInput);
 		}
-		//System.out.println(userInput);
+		
+		int[] options = {0, 1, 2};
+		boolean checkFlag = false;
+		for(int check: options) {
+			if(check == userChoice) {
+				checkFlag = true;
+			}
+		}
+		
+		if(checkFlag == false) {
+			System.out.println("That is not a valid option");
+			getUserInput();
+		}
 		
 		switch(userInput) {
 		case "0": 
@@ -61,10 +69,6 @@ public class Game {
 		case "2":
 			System.out.printf("%d - Scissors\n", userChoice);
 			break;
-		//default: 
-			//System.out.println("Invalid option");
-			//throw new IllegalArgumentException("Invalid Option");
-			//break;
 		}
 	}
 	
