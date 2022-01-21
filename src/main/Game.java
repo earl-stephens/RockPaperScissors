@@ -18,6 +18,7 @@ public class Game {
 		getUserInput();
 		computerChooses();
 		System.out.println(outputOfRound());
+		nextRoundCheck();
 		keepPlaying();
 	}
 	
@@ -39,13 +40,13 @@ public class Game {
 		
 		switch(userInput) {
 		case "0": 
-			System.out.printf("%d - Rock", userChoice);
+			System.out.printf("%d - Rock\n", userChoice);
 			break;
 		case "1":
-			System.out.printf("%d - Paper", userChoice);
+			System.out.printf("%d - Paper\n", userChoice);
 			break;
 		case "2":
-			System.out.printf("%d - Scissors", userChoice);
+			System.out.printf("%d - Scissors\n", userChoice);
 			break;
 		default: 
 			//System.out.println("Invalid option");
@@ -107,9 +108,12 @@ public class Game {
 	}
 	
 	public String nextRoundCheck() {
+		System.out.println("That was round " + roundCounter);
 		if(roundCounter < 3) {
-			return userInputPrompt();
+			System.out.println("Enter 0 for Rock, 1 for Paper, 2 for Scissors.");
+			return "Enter 0 for Rock, 1 for Paper, 2 for Scissors.";
 		} else {
+			System.out.println("No turns remaining.");
 			return "No turns remaining.";
 		}
 	}
@@ -118,7 +122,7 @@ public class Game {
 		if(roundCounter < 3) {
 			getUserInput();
 			computerChooses();
-			outputOfRound();
+			System.out.println(outputOfRound());
 			nextRoundCheck();
 			keepPlaying();
 		} else {
@@ -129,9 +133,11 @@ public class Game {
 	public String declareWinner() {
 		if(computerWins > playerWins) {
 			String compWin = "Computer won - best " + computerWins + " out of 3";
+			System.out.println(compWin);
 			return compWin;
 		} else {
 			String playWin = "You won - best " + playerWins + " out of 3";
+			System.out.println(playWin);
 			return playWin;
 		}
 	}
