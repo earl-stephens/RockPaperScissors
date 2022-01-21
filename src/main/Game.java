@@ -18,6 +18,7 @@ public class Game {
 		getUserInput();
 		computerChooses();
 		System.out.println(outputOfRound());
+		nextRoundCheck();
 		keepPlaying();
 	}
 	
@@ -107,9 +108,12 @@ public class Game {
 	}
 	
 	public String nextRoundCheck() {
+		System.out.println("That was round " + roundCounter);
 		if(roundCounter < 3) {
-			return userInputPrompt();
+			System.out.println("Enter 0 for Rock, 1 for Paper, 2 for Scissors.");
+			return "Enter 0 for Rock, 1 for Paper, 2 for Scissors.";
 		} else {
+			System.out.println("No turns remaining.");
 			return "No turns remaining.";
 		}
 	}
@@ -129,9 +133,11 @@ public class Game {
 	public String declareWinner() {
 		if(computerWins > playerWins) {
 			String compWin = "Computer won - best " + computerWins + " out of 3";
+			System.out.println(compWin);
 			return compWin;
 		} else {
 			String playWin = "You won - best " + playerWins + " out of 3";
+			System.out.println(playWin);
 			return playWin;
 		}
 	}
